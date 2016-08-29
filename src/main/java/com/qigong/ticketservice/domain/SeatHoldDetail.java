@@ -8,6 +8,13 @@ import javax.persistence.*;
 @Table(name ="seathold_detail")
 public class SeatHoldDetail implements Serializable {
 
+	public SeatHoldDetail(SeatHold seatHold, Level level, Integer seatNumber) {
+		super();
+		this.seatHold = seatHold;
+		this.level = level;
+		this.seatNumber = seatNumber;
+	}
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
