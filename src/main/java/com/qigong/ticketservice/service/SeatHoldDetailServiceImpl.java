@@ -32,6 +32,6 @@ public class SeatHoldDetailServiceImpl implements SeatHoldDetailService {
 
     @Override
     public void deleteSeatHoldDetail(Integer id) {
-    	seatHoldDetailRepository.delete(id);
+        seatHoldDetailRepository.delete(id);
     }
 }

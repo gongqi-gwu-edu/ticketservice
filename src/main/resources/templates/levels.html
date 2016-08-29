@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head lang="en">
-	    <title>Ticket Service</title>
-	    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
-	</head>
-	<body>
-		<div class="container">
-		    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
-		    <div th:if="${not #lists.isEmpty(levels)}">
-		        <h2>Level List</h2>
-		        <table class="table table-striped">
-		            <tr>
-		                <th>Level Id</th>
-		                <th>Level Name</th>
-		                <th>Price</th>
-		                <th>Rows</th>
-		                <th>Seats In Row</th>
-		                <th>View</th>
-		                <th>Edit</th>
-		                <th>Delete</th>
-		            </tr>
-		            <tr th:each="level : ${levels}">
-		                <td th:text="${level.levelId}">levelId</td>
-		                <td th:text="${level.levelName}">levelName</td>
-		                <td th:text="${level.price}">price</td>
-		                <td th:text="${level.rowNumber}">rowNumber</td>
-		                <td th:text="${level.seatNumberInRow}">seatNumberInRow</td>
-		                <td><a th:href="${'/level/' + level.levelId}">View</a></td>
-		                <td><a th:href="${'/level/edit/' + level.levelId}">Edit</a></td>
-		                <td><a th:href="${'/level/delete/' + level.LevelId}">Delete</a></td>
-		            </tr>
-		        </table>
-		    </div>
-		</div>
-	</body>
+    <head lang="en">
+        <title>Ticket Service</title>
+        <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    </head>
+    <body>
+        <div class="container">
+            <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+            <div th:if="${not #lists.isEmpty(levels)}">
+                <h2>Level List</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Level Id</th>
+                        <th>Level Name</th>
+                        <th>Price</th>
+                        <th>Rows</th>
+                        <th>Seats In Row</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    <tr th:each="level : ${levels}">
+                        <td th:text="${level.levelId}">levelId</td>
+                        <td th:text="${level.levelName}">levelName</td>
+                        <td th:text="${level.price}">price</td>
+                        <td th:text="${level.rowNumber}">rowNumber</td>
+                        <td th:text="${level.seatNumberInRow}">seatNumberInRow</td>
+                        <td><a th:href="${'/level/' + level.levelId}">View</a></td>
+                        <td><a th:href="${'/level/edit/' + level.levelId}">Edit</a></td>
+                        <td><a th:href="${'/level/delete/' + level.LevelId}">Delete</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
 </html>

@@ -8,14 +8,14 @@ import javax.persistence.*;
 @Table(name ="seathold_detail")
 public class SeatHoldDetail implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-	@Version
+    @Version
     private Integer version;
 
     @ManyToOne(fetch=FetchType.LAZY)
@@ -32,10 +32,10 @@ public class SeatHoldDetail implements Serializable {
     public SeatHoldDetail() {}
 
     public SeatHoldDetail(SeatHold seatHold, Level level, Integer seatNumber) {
-		this.seatHold = seatHold;
-		this.level = level;
-		this.seatNumber = seatNumber;
-	}
+        this.seatHold = seatHold;
+        this.level = level;
+        this.seatNumber = seatNumber;
+    }
 
     public Integer getId() {
         return id;

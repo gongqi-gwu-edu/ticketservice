@@ -46,13 +46,13 @@ public class SeatHoldDetailController {
 
     @RequestMapping(value = "seatHoldDetail", method = RequestMethod.POST)
     public String saveSeatHoldDetail(SeatHoldDetail seatHoldDetail) {
-    	seatHoldDetailService.saveSeatHoldDetail(seatHoldDetail);
+        seatHoldDetailService.saveSeatHoldDetail(seatHoldDetail);
         return "redirect:/seatholddetail/" + seatHoldDetail.getId();
     }
 
     @RequestMapping("seatholddetail/delete/{id}")
     public String delete(@PathVariable Integer id) {
-    	seatHoldDetailService.deleteSeatHoldDetail(id);
+        seatHoldDetailService.deleteSeatHoldDetail(id);
         return "redirect:/seatholddetails";
     }
 }

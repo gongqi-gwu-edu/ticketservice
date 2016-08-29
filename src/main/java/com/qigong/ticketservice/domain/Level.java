@@ -11,11 +11,11 @@ import javax.persistence.*;
 @Table(name ="level")
 public class Level implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @Column(name="level_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer levelId;
 
     @Version

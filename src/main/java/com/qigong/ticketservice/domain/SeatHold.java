@@ -11,14 +11,14 @@ import javax.persistence.*;
 @Table(name ="seathold")
 public class SeatHold implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
+    @Id
     @Column(name="seathold_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer seatHoldId;
 
-	@Version
+    @Version
     private Integer version;
 
     @Column(name="customer_email", length=50, nullable=false)

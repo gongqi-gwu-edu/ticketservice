@@ -2,13 +2,13 @@ package com.qigong.ticketservice.exception;
 
 public class SeatHoldExpiredException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public SeatHoldExpiredException() {
-		super();
-	}
+    public SeatHoldExpiredException() {
+        super();
+    }
 
-	public SeatHoldExpiredException(String s) {
-		super(s);
-	}
+    public SeatHoldExpiredException(String s) {
+        super(s);
+    }
 }

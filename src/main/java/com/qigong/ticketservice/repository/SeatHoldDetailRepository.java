@@ -6,5 +6,5 @@ import com.qigong.ticketservice.domain.Level;
 import com.qigong.ticketservice.domain.SeatHoldDetail;
 
 public interface SeatHoldDetailRepository extends CrudRepository<SeatHoldDetail, Integer> {
-	Iterable<SeatHoldDetail> findByLevel(Level level);
+    Iterable<SeatHoldDetail> findByLevel(Level level);
 }
