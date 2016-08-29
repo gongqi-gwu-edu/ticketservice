@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head lang="en">
+  </head>
+  <body>
+    <div class="container">
+      <div th:fragment="header">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
+              <ul class="nav navbar-nav">
+                <li><a href="#" th:href="@{/levels}">Levels</a></li>
+                <li><a href="#" th:href="@{/level/new}">New Level</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div class="jumbotron">
+          <div class="row text-center">
+            <h2>Ticket Service</h2>
+          </div>
+          <div class="row text-center">
+            <img src="../../static/images/SimpleVenue_1.png" width="500" th:src="@{/images/SimpleVenue_1.png}"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
