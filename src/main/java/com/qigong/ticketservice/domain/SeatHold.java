@@ -24,7 +24,7 @@ public class SeatHold implements Serializable {
     @Column(name="customer_email", length=50, nullable=false)
     private String customerEmail;
 
-    @Column(name="confirmation_code", length=20)
+    @Column(name="confirmation_code", length=40)
     private String confirmationCode;
 
     @Column(name="hold_time", nullable=false)

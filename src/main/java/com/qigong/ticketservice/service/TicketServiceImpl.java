@@ -132,7 +132,7 @@ public class TicketServiceImpl implements TicketService {
 		} else if (seatHold.getHoldTime().before(Timestamp.from(Instant.now().minusSeconds(seatHoldExpireTime)))) {
 			throw new SeatHoldExpiredException("Seat Hold expired");
 		} else {
-			seatHold.setConfirmationCode(UUID.randomUUID());
+			seatHold.setConfirmationCode(UUID.randomUUID().toString());
 			return seatHoldRepository.save(seatHold).getConfirmationCode();
 		}
 	}
