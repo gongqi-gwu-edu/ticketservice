@@ -43,6 +43,7 @@ public class LevelController {
         return "level";
     }
 
+    /*
     @RequestMapping("level/edit/{levelId}")
     public String edit(@PathVariable Integer levelId, Model model) {
         model.addAttribute("level", levelService.getLevelByLevelId(levelId));
@@ -65,5 +66,5 @@ public class LevelController {
     public String delete(@PathVariable Integer levelId) {
         levelService.deleteLevel(levelId);
         return "redirect:/levels";
-    }
+    }*/
 }

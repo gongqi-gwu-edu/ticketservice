@@ -28,6 +28,6 @@ public class SeatHoldDetailController {
     @RequestMapping("seatholddetail/{id}")
     public String showSeatHoldDetail(@PathVariable Integer id, Model model) {
         model.addAttribute("seatHoldDetail", seatHoldDetailService.getSeatHoldDetailById(id));
-        return "seatholddetailshow";
+        return "seatholddetail";
     }
 }

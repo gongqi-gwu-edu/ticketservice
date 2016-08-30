@@ -25,15 +25,15 @@ public class SeatHoldController {
         return "seatholds";
     }
 
-    @RequestMapping("seathold/{id}")
+    @RequestMapping("seathold/{seatHoldId}")
     public String showSeatHold(@PathVariable Integer seatHoldId, Model model) {
         model.addAttribute("seatHold", seatHoldService.getSeatHoldBySeatHoldId(seatHoldId));
         return "seathold";
     }
 
-    @RequestMapping("seathold/delete/{id}")
-    public String delete(@PathVariable Integer id) {
-        seatHoldService.deleteSeatHold(id);
+    @RequestMapping("seathold/delete/{seatHoldId}")
+    public String delete(@PathVariable Integer seatHoldId) {
+        seatHoldService.deleteSeatHold(seatHoldId);
         return "redirect:/seatholds";
     }
 }

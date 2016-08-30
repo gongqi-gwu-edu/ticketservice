@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <title>Ticket Service</title>
+        <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    </head>
+    <body>
+        <div class="container">
+            <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+            <div th:if="${not #lists.isEmpty(seatHolds)}">
+                <h2>Seat Hold List</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Seat Hold Id</th>
+                        <th>Seat Number</th>
+                        <th>Min Level Id</th>
+                        <th>Max Level Id</th>
+                        <th>Customer Email</th>
+                        <th>Confirmation Code</th>
+                        <th>Hold Time</th>
+                        <th>Reservation Time</th>
+                        <th>View</th>
+                    </tr>
+                    <tr th:each="seatHold : ${seatHolds}">
+                        <td th:text="${seatHold.seatHoldId}">seatHoldId</td>
+                        <td th:text="${seatHold.seatNumber}">seatNumber</td>
+                        <td th:text="${seatHold.minLevelId}">minLevelId</td>
+                        <td th:text="${seatHold.maxLevelId}">maxLevelId</td>
+                        <td th:text="${seatHold.customerEmail}">customerEmail</td>
+                        <td th:text="${seatHold.confirmationCode}">confirmationCode</td>
+                        <td th:text="${seatHold.holdTime}">holdTime</td>
+                        <td th:text="${seatHold.reservationTime}">reservationTime</td>
+                        <td><a th:href="${'/seathold/' + seatHold.seatHoldId}">View</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
