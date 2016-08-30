@@ -7,7 +7,5 @@ public interface SeatHoldService {
 
     SeatHold getSeatHoldBySeatHoldId(Integer seatHoldId);
 
-    SeatHold saveSeatHold(SeatHold seatHold);
-
     void deleteSeatHold(Integer seatHoldId);
 }

@@ -94,6 +94,13 @@ public class TicketServiceImpl implements TicketService {
                                                                       minLevel.isPresent() ? minLevel.get() : minLevelId);
 
         SeatHold seatHold = new SeatHold();
+        seatHold.setSeatNumber(numSeats);
+        if (minLevel.isPresent()) {
+            seatHold.setMinLevelId(minLevel.get());
+        }
+        if (maxLevel.isPresent()) {
+            seatHold.setMaxLevelId(maxLevel.get());
+        }
         seatHold.setCustomerEmail(customerEmail);
         int availableSeatsNum;
         for (Level level : levels) {

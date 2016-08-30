@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.qigong.ticketservice.domain.SeatHold;
 import com.qigong.ticketservice.service.SeatHoldService;
 
 @Controller
@@ -29,25 +28,7 @@ public class SeatHoldController {
     @RequestMapping("seathold/{id}")
     public String showSeatHold(@PathVariable Integer seatHoldId, Model model) {
         model.addAttribute("seatHold", seatHoldService.getSeatHoldBySeatHoldId(seatHoldId));
-        return "seatholdshow";
-    }
-
-    @RequestMapping("seathold/edit/{id}")
-    public String edit(@PathVariable Integer seatHoldId, Model model) {
-        model.addAttribute("seatHold", seatHoldService.getSeatHoldBySeatHoldId(seatHoldId));
-        return "seatholdform";
-    }
-
-    @RequestMapping("seathold/new")
-    public String newSeatHold(Model model) {
-        model.addAttribute("seatHold", new SeatHold());
-        return "seatholdform";
-    }
-
-    @RequestMapping(value = "seatHold", method = RequestMethod.POST)
-    public String saveSeatHold(SeatHold seatHold) {
-        seatHoldService.saveSeatHold(seatHold);
-        return "redirect:/seathold/" + seatHold.getSeatHoldId();
+        return "seathold";
     }
 
     @RequestMapping("seathold/delete/{id}")

@@ -21,6 +21,15 @@ public class SeatHold implements Serializable {
     @Version
     private Integer version;
 
+    @Column(name="seat_number", nullable=false)
+    private Integer seatNumber;
+
+    @Column(name="min_level_id")
+    private Integer minLevelId;
+
+    @Column(name="max_level_id")
+    private Integer maxLevelId;
+
     @Column(name="customer_email", length=50, nullable=false)
     private String customerEmail;
 
@@ -52,6 +61,30 @@ public class SeatHold implements Serializable {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    public Integer getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(Integer seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public Integer getMinLevelId() {
+        return minLevelId;
+    }
+
+    public void setMinLevelId(Integer minLevelId) {
+        this.minLevelId = minLevelId;
+    }
+
+    public Integer getMaxLevelId() {
+        return maxLevelId;
+    }
+
+    public void setMaxLevelId(Integer maxLevelId) {
+        this.maxLevelId = maxLevelId;
     }
 
     public String getCustomerEmail() {

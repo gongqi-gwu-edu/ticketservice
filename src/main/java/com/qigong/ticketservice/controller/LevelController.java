@@ -1,5 +1,7 @@
 package com.qigong.ticketservice.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,26 +11,35 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.qigong.ticketservice.domain.Level;
 import com.qigong.ticketservice.service.LevelService;
+import com.qigong.ticketservice.service.TicketService;
 
 @Controller
 public class LevelController {
 
     private LevelService levelService;
+    private TicketService ticketService;
 
     @Autowired
     public void setLevelService(LevelService levelService) {
         this.levelService = levelService;
     }
 
+    @Autowired
+    public void setTicketService(TicketService ticketService) {
+        this.ticketService = ticketService;
+    }
+
     @RequestMapping(value = "/levels", method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("levels", levelService.listAllLevels());
+        model.addAttribute("availableSeatsNumber", ticketService.numSeatsAvailable(Optional.empty()));
         return "levels";
     }
 
     @RequestMapping("level/{levelId}")
     public String showLevel(@PathVariable Integer levelId, Model model) {
         model.addAttribute("level", levelService.getLevelByLevelId(levelId));
+        model.addAttribute("availableSeatsNumber", ticketService.numSeatsAvailable(Optional.of(levelId)));
         return "level";
     }
 

@@ -26,11 +26,6 @@ public class SeatHoldServiceImpl implements SeatHoldService {
     }
 
     @Override
-    public SeatHold saveSeatHold(SeatHold seatHold) {
-        return seatHoldRepository.save(seatHold);
-    }
-
-    @Override
     public void deleteSeatHold(Integer seatHoldId) {
         seatHoldRepository.delete(seatHoldId);
     }

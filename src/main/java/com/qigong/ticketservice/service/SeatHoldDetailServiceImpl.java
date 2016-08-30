@@ -24,14 +24,4 @@ public class SeatHoldDetailServiceImpl implements SeatHoldDetailService {
     public SeatHoldDetail getSeatHoldDetailById(Integer id) {
         return seatHoldDetailRepository.findOne(id);
     }
-
-    @Override
-    public SeatHoldDetail saveSeatHoldDetail(SeatHoldDetail seatHoldDetail) {
-        return seatHoldDetailRepository.save(seatHoldDetail);
-    }
-
-    @Override
-    public void deleteSeatHoldDetail(Integer id) {
-        seatHoldDetailRepository.delete(id);
-    }
 }
