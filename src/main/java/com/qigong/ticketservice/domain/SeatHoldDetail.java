@@ -19,10 +19,6 @@ public class SeatHoldDetail implements Serializable {
     private Integer version;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="seathold_id", nullable=false)
-    private SeatHold seatHold;
-
-    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="level_id", nullable=false)
     private Level level;
 
@@ -31,8 +27,7 @@ public class SeatHoldDetail implements Serializable {
 
     public SeatHoldDetail() {}
 
-    public SeatHoldDetail(SeatHold seatHold, Level level, Integer seatNumber) {
-        this.seatHold = seatHold;
+    public SeatHoldDetail(Level level, Integer seatNumber) {
         this.level = level;
         this.seatNumber = seatNumber;
     }
@@ -51,14 +46,6 @@ public class SeatHoldDetail implements Serializable {
 
     public void setVersion(Integer version) {
         this.version = version;
-    }
-
-    public SeatHold getSeatHold() {
-        return seatHold;
-    }
-
-    public void setSeatHold(SeatHold seatHold) {
-        this.seatHold = seatHold;
     }
 
     public Level getLevel() {

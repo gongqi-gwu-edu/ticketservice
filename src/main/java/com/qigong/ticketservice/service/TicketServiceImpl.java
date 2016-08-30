@@ -111,10 +111,10 @@ public class TicketServiceImpl implements TicketService {
                 if (availableSeatsNum == 0) {
                     continue;
                 } else if (numSeats > availableSeatsNum) {
-                    seatHold.getSeatHoldDetails().add(new SeatHoldDetail(seatHold, level, availableSeatsNum));
+                    seatHold.getSeatHoldDetails().add(new SeatHoldDetail(level, availableSeatsNum));
                     numSeats -= availableSeatsNum;
                 } else {
-                    seatHold.getSeatHoldDetails().add(new SeatHoldDetail(seatHold, level, numSeats));
+                    seatHold.getSeatHoldDetails().add(new SeatHoldDetail(level, numSeats));
                     numSeats = 0;
                 }
             } else {

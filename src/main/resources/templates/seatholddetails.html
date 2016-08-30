@@ -12,14 +12,12 @@
                 <table class="table table-striped">
                     <tr>
                         <th>Id</th>
-                        <th>Seat Hold Id</th>
                         <th>Level Id</th>
                         <th>Seat Number</th>
                         <th>View</th>
                     </tr>
                     <tr th:each="seatHoldDetail : ${seatHoldDetails}">
                         <td th:text="${seatHoldDetail.id}">id</td>
-                        <td th:text="${seatHoldDetail.seatHold.seatHoldId}">seatHoldId</td>
                         <td th:text="${seatHoldDetail.level.levelId}">levelId</td>
                         <td th:text="${seatHoldDetail.seatNumber}">seatNumber</td>
                         <td><a th:href="${'/seatholddetail/' + seatHoldDetail.id}">View</a></td>

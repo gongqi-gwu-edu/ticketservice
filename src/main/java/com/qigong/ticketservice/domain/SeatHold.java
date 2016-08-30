@@ -42,7 +42,7 @@ public class SeatHold implements Serializable {
     @Column(name="reservation_time")
     private Timestamp reservationTime;
 
-    @OneToMany(cascade={CascadeType.ALL}, mappedBy="seatHold", fetch=FetchType.LAZY)
+    @OneToMany(cascade={CascadeType.ALL}, fetch=FetchType.LAZY)
     private Set<SeatHoldDetail> seatHoldDetails = new HashSet<SeatHoldDetail>();
 
     public SeatHold() {}
