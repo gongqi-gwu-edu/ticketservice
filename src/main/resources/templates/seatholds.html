@@ -31,6 +31,7 @@
                         <td th:text="${seatHold.holdTime}">holdTime</td>
                         <td th:text="${seatHold.reservationTime}">reservationTime</td>
                         <td><a th:href="${'/seathold/' + seatHold.seatHoldId}">View</a></td>
+                        <td><a th:href="${'/seathold/commit/' + seatHold.seatHoldId}">Reserve</a></td>
                     </tr>
                 </table>
             </div>
