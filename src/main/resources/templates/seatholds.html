@@ -20,6 +20,7 @@
                         <th>Hold Time</th>
                         <th>Reservation Time</th>
                         <th>View</th>
+                        <th>Reserve</th>
                     </tr>
                     <tr th:each="seatHold : ${seatHolds}">
                         <td th:text="${seatHold.seatHoldId}">seatHoldId</td>
@@ -31,7 +32,7 @@
                         <td th:text="${seatHold.holdTime}">holdTime</td>
                         <td th:text="${seatHold.reservationTime}">reservationTime</td>
                         <td><a th:href="${'/seathold/' + seatHold.seatHoldId}">View</a></td>
-                        <td><a th:href="${'/seathold/commit/' + seatHold.seatHoldId}">Reserve</a></td>
+                        <td><a th:href="${'/seathold/commit/' + seatHold.customerEmail + '/' + seatHold.seatHoldId}">Reserve</a></td>
                     </tr>
                 </table>
             </div>

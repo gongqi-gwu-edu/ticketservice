@@ -82,16 +82,17 @@ public class TicketServiceImpl implements TicketService {
         } else if (minLevel.isPresent() && maxLevel.isPresent() && minLevel.get() > maxLevel.get()) {
             throw new LevelValidationException("minLevel is greater than maxLevel");
         }
-        Integer minLevelId = levelRepository.findMinLevelId().getLevelId();
-        Integer maxLevelId = levelRepository.findMaxLevelId().getLevelId();
+
+        Integer minLevelId = levelRepository.findFirstByOrderByLevelIdAsc().getLevelId();
+        Integer maxLevelId = levelRepository.findFirstByOrderByLevelIdDesc().getLevelId();
         if (minLevel.isPresent() && (minLevel.get() < minLevelId || minLevel.get() > maxLevelId)) {
             throw new LevelValidationException("minLevel is not in valid range");
         } else if (maxLevel.isPresent() && (maxLevel.get() < minLevelId || maxLevel.get() > maxLevelId)) {
             throw new LevelValidationException("maxLevel is not in valid range");
         }
 
-        Iterable<Level> levels = levelRepository.findByLevelIdBetween(maxLevel.isPresent() ? maxLevel.get() : maxLevelId, 
-                                                                      minLevel.isPresent() ? minLevel.get() : minLevelId);
+        Iterable<Level> levels = levelRepository.findByLevelIdBetween(minLevel.isPresent() ? minLevel.get() : minLevelId, 
+                                                                      maxLevel.isPresent() ? maxLevel.get() : maxLevelId);
 
         SeatHold seatHold = new SeatHold();
         seatHold.setSeatNumber(numSeats);
@@ -102,6 +103,7 @@ public class TicketServiceImpl implements TicketService {
             seatHold.setMaxLevelId(maxLevel.get());
         }
         seatHold.setCustomerEmail(customerEmail);
+
         int availableSeatsNum;
         for (Level level : levels) {
             if (numSeats > 0) {
@@ -140,6 +142,7 @@ public class TicketServiceImpl implements TicketService {
             throw new SeatHoldExpiredException("Seat Hold expired");
         } else {
             seatHold.setConfirmationCode(UUID.randomUUID().toString());
+            seatHold.setReservationTime(Timestamp.from(Instant.now()));
             return seatHoldRepository.save(seatHold).getConfirmationCode();
         }
     }

@@ -46,10 +46,14 @@ public class TicketController {
                                                   seatHold.getMinLevelId() == null ? Optional.empty() : Optional.of(seatHold.getMinLevelId()), 
                                                   seatHold.getMaxLevelId() == null ? Optional.empty() : Optional.of(seatHold.getMaxLevelId()), 
                                                   seatHold.getCustomerEmail());
-        return "redirect:/seathold/" + seatHold.getSeatHoldId();
+        if (null != seatHold) {
+        	return "redirect:/seathold/" + seatHold.getSeatHoldId();
+        } else {
+        	return "error";
+        }
     }
 
-    @RequestMapping("seathold/commit/{seatHoldId}")
+    @RequestMapping("seathold/commit/{customerEmail}/{seatHoldId}")
     public String commitSeatHold(@PathVariable Integer seatHoldId, @PathVariable String customerEmail, Model model) {
         ticketService.reserveSeats(seatHoldId, customerEmail);
         return "redirect:/seatholds";
