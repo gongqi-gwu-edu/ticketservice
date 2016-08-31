@@ -60,6 +60,27 @@
                     </div>
                 </form>
             </div>
+            <div th:if="${not #lists.isEmpty(seatHold.seatHoldDetails)}">
+                <h2>Seat Hold Detail List</h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Id</th>
+                        <th>Level Id</th>
+                        <th>Level Name</th>
+                        <th>Price</th>
+                        <th>Seat Number</th>
+                        <th>View</th>
+                    </tr>
+                    <tr th:each="seatHoldDetail : ${seatHold.seatHoldDetails}">
+                        <td th:text="${seatHoldDetail.id}">id</td>
+                        <td th:text="${seatHoldDetail.level.levelId}">levelId</td>
+                        <td th:text="${seatHoldDetail.level.levelName}">levelName</td>
+                        <td th:text="${seatHoldDetail.level.price}">price</td>
+                        <td th:text="${seatHoldDetail.seatNumber}">seatNumber</td>
+                        <td><a th:href="${'/seatholddetail/' + seatHoldDetail.id}">View</a></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </body>
 </html>

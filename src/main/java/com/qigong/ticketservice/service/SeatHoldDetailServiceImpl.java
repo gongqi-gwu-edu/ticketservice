@@ -16,11 +16,6 @@ public class SeatHoldDetailServiceImpl implements SeatHoldDetailService {
     }
 
     @Override
-    public Iterable<SeatHoldDetail> listAllSeatHoldDetails() {
-        return seatHoldDetailRepository.findAll();
-    }
-
-    @Override
     public SeatHoldDetail getSeatHoldDetailById(Integer id) {
         return seatHoldDetailRepository.findOne(id);
     }

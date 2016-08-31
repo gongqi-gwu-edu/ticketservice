@@ -75,6 +75,9 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public SeatHold findAndHoldSeats(int numSeats, Optional<Integer> minLevel, Optional<Integer> maxLevel, String customerEmail) {
+    	//Remove Expired SeatHolds
+        seatHoldRepository.delete(seatHoldRepository.findByReservationTimeIsNullAndHoldTimeBefore(Timestamp.from(Instant.now().minusSeconds(seatHoldExpireTime))));
+
         if (numSeats < 1) {
             throw new SeatHoldNumberValidationException("Hold Seats Number is less than 1");
         } else if (null == customerEmail || "".equals(customerEmail) || !Pattern.matches("^[a-z_0-9.-]{1,64}@([a-z0-9-]{1,200}.){1,5}[a-z]{1,6}$", customerEmail)) {
@@ -121,16 +124,18 @@ public class TicketServiceImpl implements TicketService {
                 break;
             }
         }
-        if (numSeats == 0) {
-            seatHold.setHoldTime(Timestamp.from(Instant.now()));
-            return seatHoldRepository.save(seatHold);
-        } else {
-            return null;
+        if (numSeats > 0) {
+        	throw new SeatHoldNumberValidationException("No enough seats");
         }
+        seatHold.setHoldTime(Timestamp.from(Instant.now()));
+        return seatHoldRepository.save(seatHold);
     }
 
     @Override
     public String reserveSeats(int seatHoldId, String customerEmail) {
+    	//Remove Expired SeatHolds
+        seatHoldRepository.delete(seatHoldRepository.findByReservationTimeIsNullAndHoldTimeBefore(Timestamp.from(Instant.now().minusSeconds(seatHoldExpireTime))));
+
         SeatHold seatHold = seatHoldRepository.findOne(seatHoldId);
         if (null == seatHold) {
             throw new SeatHoldNotFoundException("No Seat Hold is found. Seat Hold may expired");

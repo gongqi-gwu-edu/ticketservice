@@ -22,17 +22,18 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
+    /*
     @RequestMapping(value = "/availableseatsnumber", method = RequestMethod.GET)
     public String getAvailableSeatsNumber(Model model) {
         model.addAttribute("availableSeatsNumber", ticketService.numSeatsAvailable(Optional.empty()));
-        return "ticket";
+        return "tickets";
     }
 
     @RequestMapping(value = "/availableseatsnumber/{levelId}", method = RequestMethod.GET)
     public String getAvailableSeatsNumber(@PathVariable Integer levelId, Model model) {
         model.addAttribute("availableSeatsNumber", ticketService.numSeatsAvailable(Optional.of(levelId)));
         return "ticket";
-    }
+    }*/
 
     @RequestMapping("seathold/new")
     public String newSeatHold(Model model) {
@@ -46,11 +47,7 @@ public class TicketController {
                                                   seatHold.getMinLevelId() == null ? Optional.empty() : Optional.of(seatHold.getMinLevelId()), 
                                                   seatHold.getMaxLevelId() == null ? Optional.empty() : Optional.of(seatHold.getMaxLevelId()), 
                                                   seatHold.getCustomerEmail());
-        if (null != seatHold) {
-        	return "redirect:/seathold/" + seatHold.getSeatHoldId();
-        } else {
-        	return "error";
-        }
+       	return "redirect:/seathold/" + seatHold.getSeatHoldId();
     }
 
     @RequestMapping("seathold/commit/{customerEmail}/{seatHoldId}")

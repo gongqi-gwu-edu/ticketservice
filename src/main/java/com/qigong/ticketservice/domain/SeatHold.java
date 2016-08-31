@@ -2,8 +2,8 @@ package com.qigong.ticketservice.domain;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -43,7 +43,7 @@ public class SeatHold implements Serializable {
     private Timestamp reservationTime;
 
     @OneToMany(cascade={CascadeType.ALL}, fetch=FetchType.LAZY)
-    private Set<SeatHoldDetail> seatHoldDetails = new HashSet<SeatHoldDetail>();
+    private List<SeatHoldDetail> seatHoldDetails = new ArrayList<SeatHoldDetail>();
 
     public SeatHold() {}
 
@@ -119,11 +119,11 @@ public class SeatHold implements Serializable {
         this.reservationTime = reservationTime;
     }
 
-    public Set<SeatHoldDetail> getSeatHoldDetails() {
+    public List<SeatHoldDetail> getSeatHoldDetails() {
         return seatHoldDetails;
     }
 
-    public void setSeatHoldDetails(Set<SeatHoldDetail> seatHoldDetails) {
+    public void setSeatHoldDetails(List<SeatHoldDetail> seatHoldDetails) {
         this.seatHoldDetails = seatHoldDetails;
     }
 }

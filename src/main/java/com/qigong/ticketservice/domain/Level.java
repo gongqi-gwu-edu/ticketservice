@@ -2,8 +2,6 @@ package com.qigong.ticketservice.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.*;
 
@@ -32,9 +30,6 @@ public class Level implements Serializable {
 
     @Column(name="seat_number_in_row", nullable=false)
     private Integer seatNumberInRow;
-
-    @OneToMany(cascade={CascadeType.ALL}, mappedBy="level", fetch=FetchType.LAZY)
-    private Set<SeatHoldDetail> seatHoldDetails = new HashSet<SeatHoldDetail>();
 
     public Level() {}
 
@@ -84,13 +79,5 @@ public class Level implements Serializable {
 
     public void setSeatNumberInRow(Integer seatNumberInRow) {
         this.seatNumberInRow = seatNumberInRow;
-    }
-
-    public Set<SeatHoldDetail> getSeatHoldDetails() {
-        return seatHoldDetails;
-    }
-
-    public void setSeatHoldDetails(Set<SeatHoldDetail> seatHoldDetails) {
-        this.seatHoldDetails = seatHoldDetails;
     }
 }
