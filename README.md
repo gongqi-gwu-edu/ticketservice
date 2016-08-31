@@ -79,6 +79,7 @@
   5. Click Orders link to view your hold request
   6. Click Reserve link to reverse seats or click Delete to remove hold requests
   7. Make sure reverse seats within 60 second.
+  
   (8. You can choose a better expire time by changing seathold.expiretime.insecond value in src\main\resources\application.properties)
 
 # If you have any questions, please do not hesitate to send me an email at gongqi@gwu.edu
