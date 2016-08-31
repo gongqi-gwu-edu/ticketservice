@@ -10,13 +10,13 @@
  
 # Functions: 
   1. Find the number of seats available within the venue, optionally by seating level (Note: available seats are seats that are neither held nor reserved.)
-     Function Signature: int numSeatsAvailable(Optional<Integer> venueLevel);
+  Function Signature: int numSeatsAvailable(Optional<Integer> venueLevel);
  
   2. Find and hold the best available seats on behalf of a customer, potentially limited to specific levels (Note: each ticket hold should expire within a set number of seconds.)
-     Function Signature: SeatHold findAndHoldSeats(int numSeats, Optional<Integer> minLevel, Optional<Integer> maxLevel, String customerEmail)
+  Function Signature: SeatHold findAndHoldSeats(int numSeats, Optional<Integer> minLevel, Optional<Integer> maxLevel, String customerEmail)
  
   3. Reserve and commit a specific group of held seats for a customer
-     Function Signature: String reserveSeats(int seatHoldId, String customerEmail)
+  Function Signature: String reserveSeats(int seatHoldId, String customerEmail)
  
 # Assumptions:
   1. User can hold a seat within 60 second.
