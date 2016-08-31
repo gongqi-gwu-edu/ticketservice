@@ -69,7 +69,7 @@
   
   mvn spring-boot:run
   
-  6. open http://localhost:8080/
+  6. open http://localhost:8080/ in web browser
   
 # How to use the ticket service application
   1. Click Tickets link to find available seats number
