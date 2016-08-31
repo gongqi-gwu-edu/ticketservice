@@ -56,14 +56,17 @@
   1. Create walmart directory under you home directory, and enter this directory
 
   2. Clone project for GitHub
+  
   git clone https://github.com/gongqi-gwu-edu/ticketservice.git
 
   3. Enter ticketservice directory
   
   4. Run unit test
+  
   mvn test
   
   5. Run application
+  
   mvn spring-boot:run
   
   6. open http://localhost:8080/
@@ -76,5 +79,6 @@
   5. Click Orders link to view your hold request
   6. Click Reserve link to reverse seats or click Delete to remove hold requests
   7. Make sure reverse seats within 60 second.
-  (8. You can choose a better expire time by changing seathold.expiretime.insecond value in src\main\resources\application.properties) 
+  (8. You can choose a better expire time by changing seathold.expiretime.insecond value in src\main\resources\application.properties)
+
 # If you have any questions, please do not hesitate to send me an email at gongqi@gwu.edu
